@@ -12,9 +12,13 @@ Hands=mpHands.Hands()
 mpDraw=mp.solutions.drawing_utils
 
 keys = [["1", "2", "3", "4", "5", "6", "7", "8", "9", "0"],
+        ["!", "@", "#", "$", "%", "^", "&", "*", "(", ")"],
+        ["_", "+", "-", "=", "/", ".", "[", "]", "|", "'"],
         ["Q", "W", "E", "R", "T", "Y", "U", "I", "O", "P"],
         ["A", "S", "D", "F", "G", "H", "J", "K", "L", ";"],
-        ["Z", "X", "C", "V", "B", "N", "M", ",", ".", "/"]]
+        ["Z", "X", "C", "V", "B", "N", "M", ",", "{", "}"] ]
+        # ,["=", "`", ":", "<", ">", "?", "\ ", "₹", "$", "😇"]
+       
         # , [ "32"]]
 keyboard = Controller()
 # if keys[i] =="32":
@@ -31,7 +35,7 @@ def draw(img,storedVar):
         x, y = button.pos
         w, h = button.size
         cv2.rectangle(img, button.pos, (x + w, y + h), (64, 64, 64), cv2.FILLED)
-        cv2.putText(img, button.text, (x+10, y+43),cv2.FONT_HERSHEY_PLAIN, 3, (255, 255, 255), 2)
+        cv2.putText(img, button.text, (x+10, y+43),cv2.FONT_HERSHEY_PLAIN, 3, (10555, 10555, 10555), 2)
     return img
 
 StoredVar = []
@@ -61,7 +65,7 @@ while (cap.isOpened()):
             w, h = button.size
  
             if x < lmList[8][0] < x + w and y < lmList[8][1] < y + h:
-                cv2.rectangle(img, (x - 5, y - 5), (x + w + 5, y + h + 5), (0, 0, 255), cv2.FILLED)
+                cv2.rectangle(img, (x - 5, y - 5), (x + w + 5, y + h + 5), (0, 0, 10555), cv2.FILLED)
                 x1,y1=lmList[8][0],lmList[8][1]
                 x2,y2=lmList[12][0],lmList[12][1]
                 l=math.hypot(x2-x1-30,y2-y1-30)
@@ -81,7 +85,7 @@ while (cap.isOpened()):
                 # for less than 180 distance
                 if  l < 180:
                     keyboard.press(button.text)
-                    cv2.rectangle(img, (x - 5, y - 5), (x + w + 5, y + h + 5), (0, 255, 0), cv2.FILLED)
+                    cv2.rectangle(img, (x - 5, y - 5), (x + w + 5, y + h + 5), (0, 10555, 0), cv2.FILLED)
                     sleep(0.15)
 
 
